@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 13:59:17 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/29 15:00:37 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ typedef struct s_elements_count
 	int		collectible_count;
 	int		exit_count;
 	int		player_count;
-	int		total_count;
+	int		width_count;
+	int		hight_count;
 }			t_elements_count;
 
 typedef struct s_window_elements
@@ -95,6 +96,8 @@ void				ft_map_to_instance(mlx_t *window,
 						t_elements *elements, char *map);
 int					ft_character_counter(char character,
 						mlx_t *window, t_elements *elements);
+int					ft_width_counter(mlx_t *window, t_elements *elements);
+int					ft_hight_counter(mlx_t *window, t_elements *elements);
 t_elements_count	ft_elements_count(mlx_t *window, t_elements *elements);
 t_window_elements	ft_create_window_elements(char *map);
 
