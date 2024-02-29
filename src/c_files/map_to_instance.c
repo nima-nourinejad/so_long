@@ -6,11 +6,20 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:40 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 14:00:56 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/29 16:04:26 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
+
+void	ft_map_to_instance_background(mlx_t *window, t_elements *elements)
+{
+	mlx_image_t	*background;
+
+	background = elements->empty_space;
+	if (mlx_image_to_window(window, background, 0, 0) == -1)
+		ft_exit_failure(window, elements, "backgroubd instance making problem");
+}
 
 void	ft_create_instance(mlx_t *window,
 	t_elements *elements, t_point_data point_data)
@@ -18,8 +27,8 @@ void	ft_create_instance(mlx_t *window,
 	mlx_image_t	*image;
 
 	if (point_data.character == '0')
-		image = elements->empty_space;
-	else if (point_data.character == '1')
+		return ;
+	if (point_data.character == '1')
 		image = elements->wall;
 	else if (point_data.character == 'C')
 		image = elements->collectible;
@@ -27,15 +36,9 @@ void	ft_create_instance(mlx_t *window,
 		image = elements->exit;
 	else
 		image = elements->player;
-	if (point_data.character == 'C')
-	{
-		if (mlx_image_to_window(window, elements->empty_space,
-				point_data.x_position, point_data.y_position) == -1)
-			ft_exit_failure(window, elements, "Insance making problem");
-	}
 	if (mlx_image_to_window(window, image,
 			point_data.x_position, point_data.y_position) == -1)
-		ft_exit_failure(window, elements, "Insance making problem");
+		ft_exit_failure(window, elements, "Instance making problem");
 }
 
 void	ft_map_to_instance_except_player(mlx_t *window,
@@ -99,6 +102,7 @@ void	ft_map_to_instance_player(mlx_t *window,
 
 void	ft_map_to_instance(mlx_t *window, t_elements *elements, char *map)
 {
+	ft_map_to_instance_background(window, elements);
 	ft_map_to_instance_except_player(window, elements, map);
 	ft_map_to_instance_player(window, elements, map);
 }

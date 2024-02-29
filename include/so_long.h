@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 15:00:37 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:09:54 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,16 @@ void				ft_move_down(void *param);
 void				ft_move_right(void *param);
 void				ft_move_left(void *param);
 void				ft_move(mlx_key_data_t keydata, void *param);
+int					ft_make_color(int r, int g, int b, int a);
+void				ft_color_backgroubd(mlx_image_t *background,
+						int width, int hight);
+mlx_image_t			*ft_create_background(mlx_t *window,
+						t_elements_count elements_count);
 mlx_image_t			*ft_create_image(mlx_t *window, char c);
-t_elements			*ft_create_elements(mlx_t *window);
+t_elements			*ft_create_elements(mlx_t *window,
+						t_elements_count elements_count);
+void				ft_map_to_instance_background(mlx_t *window,
+						t_elements *elements);
 void				ft_create_instance(mlx_t *window,
 						t_elements *elements, t_point_data point_data);
 void				ft_map_to_instance_except_player(mlx_t *window,
@@ -94,11 +102,10 @@ void				ft_map_to_instance_player(mlx_t *window,
 						t_elements *elements, char *map);
 void				ft_map_to_instance(mlx_t *window,
 						t_elements *elements, char *map);
-int					ft_character_counter(char character,
-						mlx_t *window, t_elements *elements);
-int					ft_width_counter(mlx_t *window, t_elements *elements);
-int					ft_hight_counter(mlx_t *window, t_elements *elements);
-t_elements_count	ft_elements_count(mlx_t *window, t_elements *elements);
+int					ft_character_counter(char character, char *map);
+int					ft_width_counter(char *map);
+int					ft_hight_counter(char *map);
+t_elements_count	ft_elements_count(char *map);
 t_window_elements	ft_create_window_elements(char *map);
 
 #endif // SO_LONG_H

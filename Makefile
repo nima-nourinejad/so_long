@@ -6,7 +6,7 @@
 #    By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/02/29 13:17:55 by nnourine         ###   ########.fr        #
+#    Updated: 2024/02/29 15:36:37 by nnourine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS = $(SRCDIR)/check_exit.c  \
 		$(SRCDIR)/check_near_wall.c  \
 		$(SRCDIR)/check_reach_to_collectible.c  \
 		$(SRCDIR)/check_with_wall_instance.c  \
+		$(SRCDIR)/create_backgroub.c  \
 		$(SRCDIR)/create_elements.c  \
 		$(SRCDIR)/create_window_elements.c  \
 		$(SRCDIR)/exit.c  \
