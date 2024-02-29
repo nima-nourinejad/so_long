@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:55 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 13:20:44 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:54:55 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_elements_count	ft_elements_count(mlx_t *window, t_elements *elements)
 	return (elements_count);
 }
 
-t_window_elements	ft_create_window_elements(void)
+t_window_elements	ft_create_window_elements(char *map)
 {
 	mlx_t					*window;
 	t_elements				*elements;
@@ -58,7 +58,7 @@ t_window_elements	ft_create_window_elements(void)
 
 	window = mlx_init(1170, 450, "title", true);
 	elements = ft_create_elements(window);
-	ft_map_to_instance(window, elements);
+	ft_map_to_instance(window, elements, map);
 	window_elements.window = window;
 	window_elements.elements = elements;
 	window_elements.elements_count = ft_elements_count(window, elements);

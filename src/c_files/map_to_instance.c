@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:40 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 13:21:31 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/29 14:00:56 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ void	ft_create_instance(mlx_t *window,
 		ft_exit_failure(window, elements, "Insance making problem");
 }
 
-void	ft_map_to_instance_except_player(mlx_t *window, t_elements *elements)
+void	ft_map_to_instance_except_player(mlx_t *window,
+	t_elements *elements, char *map)
 {
 	int				fd_map;
 	t_point_data	point_data;
 
-	fd_map = open("./map.ber", O_RDONLY);
+	fd_map = open(map, O_RDONLY);
 	if (fd_map == -1)
 		ft_exit_failure(window, elements, "Map opening problem");
 	point_data.x_position = 0;
@@ -67,12 +68,13 @@ void	ft_map_to_instance_except_player(mlx_t *window, t_elements *elements)
 	close(fd_map);
 }
 
-void	ft_map_to_instance_player(mlx_t *window, t_elements *elements)
+void	ft_map_to_instance_player(mlx_t *window,
+	t_elements *elements, char *map)
 {
 	int				fd_map;
 	t_point_data	point_data;
 
-	fd_map = open("./map.ber", O_RDONLY);
+	fd_map = open(map, O_RDONLY);
 	if (fd_map == -1)
 		ft_exit_failure(window, elements, "Map opening problem");
 	point_data.x_position = 0;
@@ -95,8 +97,8 @@ void	ft_map_to_instance_player(mlx_t *window, t_elements *elements)
 	close(fd_map);
 }
 
-void	ft_map_to_instance(mlx_t *window, t_elements *elements)
+void	ft_map_to_instance(mlx_t *window, t_elements *elements, char *map)
 {
-	ft_map_to_instance_except_player(window, elements);
-	ft_map_to_instance_player(window, elements);
+	ft_map_to_instance_except_player(window, elements, map);
+	ft_map_to_instance_player(window, elements, map);
 }

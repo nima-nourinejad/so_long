@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 13:31:54 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:59:17 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,14 @@ t_elements			*ft_create_elements(mlx_t *window);
 void				ft_create_instance(mlx_t *window,
 						t_elements *elements, t_point_data point_data);
 void				ft_map_to_instance_except_player(mlx_t *window,
-						t_elements *elements);
+						t_elements *elements, char *map);
 void				ft_map_to_instance_player(mlx_t *window,
-						t_elements *elements);
-void				ft_map_to_instance(mlx_t *window, t_elements *elements);
+						t_elements *elements, char *map);
+void				ft_map_to_instance(mlx_t *window,
+						t_elements *elements, char *map);
 int					ft_character_counter(char character,
 						mlx_t *window, t_elements *elements);
 t_elements_count	ft_elements_count(mlx_t *window, t_elements *elements);
-t_window_elements	ft_create_window_elements(void);
+t_window_elements	ft_create_window_elements(char *map);
 
 #endif // SO_LONG_H
