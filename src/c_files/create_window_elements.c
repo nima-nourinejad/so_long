@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:55 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 14:35:37 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:05:05 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,8 @@ t_window_elements	ft_create_window_elements(char *map)
 	t_elements				*elements;
 	t_window_elements		window_elements;
 	int						movement_count;
-	int						image_size;
 
 	window_elements.elements_count = ft_elements_count(map);
-	image_size = window_elements.elements_count.image_size;
 	window = mlx_init(window_elements.elements_count.window_width,
 			window_elements.elements_count.window_height,
 			"so_long", true);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   press_key.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:31 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 16:39:07 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:11:22 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_move_up(void *param)
 	{
 		*movement_count = *movement_count + 1;
 		ft_printf("Movement Count:%d\n", *movement_count);
-		player->instances[0].y -= elements_count.image_size;
+		player->instances[0].y -= elements_count.image_height;
 		ft_check_reach_to_collectible(((t_window_elements *) param));
 		ft_check_exit(((t_window_elements *) param));
 	}
@@ -52,7 +52,7 @@ void	ft_move_down(void *param)
 	{
 		*movement_count = *movement_count + 1;
 		ft_printf("Movement Count:%d\n", *movement_count);
-		player->instances[0].y += elements_count.image_size;
+		player->instances[0].y += elements_count.image_height;
 		ft_check_reach_to_collectible(((t_window_elements *) param));
 		ft_check_exit(((t_window_elements *) param));
 	}
@@ -75,7 +75,7 @@ void	ft_move_right(void *param)
 	{
 		*movement_count = *movement_count + 1;
 		ft_printf("Movement Count:%d\n", *movement_count);
-		player->instances[0].x += elements_count.image_size;
+		player->instances[0].x += elements_count.image_width;
 		ft_check_reach_to_collectible(((t_window_elements *) param));
 		ft_check_exit(((t_window_elements *) param));
 	}
@@ -98,7 +98,7 @@ void	ft_move_left(void *param)
 	{
 		*movement_count = *movement_count + 1;
 		ft_printf("Movement Count:%d\n", *movement_count);
-		player->instances[0].x -= elements_count.image_size;
+		player->instances[0].x -= elements_count.image_width;
 		ft_check_reach_to_collectible(((t_window_elements *) param));
 		ft_check_exit(((t_window_elements *) param));
 	}

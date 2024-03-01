@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 13:22:07 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 16:22:48 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:03:50 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ void	ft_calculate_character_size(t_elements_count *elements_count)
 		final_ratio = ratio_width;
 	if (final_ratio > 1)
 		final_ratio = 1;
-	(*elements_count).image_size = floor(final_ratio * START_IMAGE_SIZE);
-	(*elements_count).window_width = ceil((*elements_count).image_size
+	(*elements_count).image_width = floor(final_ratio * START_IMAGE_SIZE);
+	(*elements_count).image_height = floor(final_ratio * START_IMAGE_SIZE);
+	(*elements_count).window_width = ceil((*elements_count).image_width
 			* (*elements_count).width_count);
-	(*elements_count).window_height = ceil((*elements_count).image_size
+	(*elements_count).window_height = ceil((*elements_count).image_height
 			* (*elements_count).hight_count);
 }

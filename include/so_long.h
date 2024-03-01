@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 16:39:23 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:08:30 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct s_elements
 	mlx_image_t	*exit;
 	mlx_image_t	*player;
 	int			*start_image_size;
-	int			*image_size;
+	int			*image_width;
+	int			*image_height;
 	int			*window_width;
 	int			*window_height;
 }				t_elements;
@@ -46,7 +47,8 @@ typedef struct s_elements_count
 	int		width_count;
 	int		hight_count;
 	int		start_image_size;
-	int		image_size;
+	int		image_width;
+	int		image_height;
 	int		window_width;
 	int		window_height;
 }			t_elements_count;
@@ -105,7 +107,7 @@ void				ft_color_backgroubd(mlx_image_t *background,
 mlx_image_t			*ft_create_background(mlx_t *window,
 						int window_width, int window_height);
 mlx_image_t			*ft_create_image(mlx_t *window, char c,
-						int image_size);
+						int image_width, int image_height);
 t_elements			*ft_create_elements(mlx_t *window,
 						t_elements_count elements_count);
 void				ft_map_to_instance_background(mlx_t *window,

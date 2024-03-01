@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point_data_start.c                                 :+:      :+:    :+:   */
+/*   resize.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 11:57:39 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 17:10:17 by nnourine         ###   ########.fr       */
+/*   Created: 2024/03/01 17:14:56 by nnourine          #+#    #+#             */
+/*   Updated: 2024/03/01 17:20:08 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-t_point_data	ft_point_data_start(char *map, t_elements_count elements_count)
+mlx_resizefunc	ft_resize(int new_width, int new_height, void *param)
 {
-	t_point_data	point_data;
+	mlx_t				*window;
+	t_elements_count	elements_count;
 
-	point_data.fd_map = open(map, O_RDONLY);
-	point_data.x_position = 0;
-	point_data.y_position = 0;
-	point_data.character = '\0';
-	point_data.character_width
-		= elements_count.image_width;
-	point_data.character_height
-		= elements_count.image_height;
-	return (point_data);
+	window = ((t_window_elements *) param)->window;
+	elements_count = (((t_window_elements *) param))->elements_count;
 }
