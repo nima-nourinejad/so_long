@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 16:20:52 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:39:23 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ void				ft_move_up(void *param);
 void				ft_move_down(void *param);
 void				ft_move_right(void *param);
 void				ft_move_left(void *param);
-void				ft_move(mlx_key_data_t keydata, void *param);
+void				ft_escape_key(void *param);
+void				ft_press_key(mlx_key_data_t keydata, void *param);
 int					ft_make_color(int r, int g, int b, int a);
 void				ft_color_backgroubd(mlx_image_t *background,
 						int width, int hight);

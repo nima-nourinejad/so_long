@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:31 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 15:07:23 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:39:07 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_move_left(void *param)
 	}
 }
 
-void	ft_move(mlx_key_data_t keydata, void *param)
+void	ft_press_key(mlx_key_data_t keydata, void *param)
 {
 	if (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS)
 		ft_move_up(param);
@@ -114,4 +114,6 @@ void	ft_move(mlx_key_data_t keydata, void *param)
 		ft_move_right(param);
 	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
 		ft_move_left(param);
+	else if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		ft_escape_key(param);
 }

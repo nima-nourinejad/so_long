@@ -6,7 +6,7 @@
 #    By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/03/01 15:42:42 by nnourine         ###   ########.fr        #
+#    Updated: 2024/03/01 16:40:59 by nnourine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,10 @@ SRCS = $(SRCDIR)/calculate_character_size.c  \
 		$(SRCDIR)/create_backgroub.c  \
 		$(SRCDIR)/create_elements.c  \
 		$(SRCDIR)/create_window_elements.c  \
+		$(SRCDIR)/escape_key.c  \
 		$(SRCDIR)/exit.c  \
 		$(SRCDIR)/map_to_instance.c  \
-		$(SRCDIR)/move.c  \
+		$(SRCDIR)/press_key.c  \
 		$(SRCDIR)/point_data_start.c  \
 		$(SRCDIR)/so_long.c
 OBJS = $(SRCS:.c=.o)
