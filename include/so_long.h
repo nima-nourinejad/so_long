@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 12:11:32 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:20:52 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <math.h>
 # include "../lib/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 
-# define START_WINDOW_WIDTH 1170
-# define START_WINDOW_HEIGHT 450
+# define START_IMAGE_SIZE 100
 
 typedef struct s_elements
 {
@@ -31,6 +31,10 @@ typedef struct s_elements
 	mlx_image_t	*collectible;
 	mlx_image_t	*exit;
 	mlx_image_t	*player;
+	int			*start_image_size;
+	int			*image_size;
+	int			*window_width;
+	int			*window_height;
 }				t_elements;
 
 typedef struct s_elements_count
@@ -41,6 +45,10 @@ typedef struct s_elements_count
 	int		player_count;
 	int		width_count;
 	int		hight_count;
+	int		start_image_size;
+	int		image_size;
+	int		window_width;
+	int		window_height;
 }			t_elements_count;
 
 typedef struct s_window_elements
@@ -93,9 +101,10 @@ void				ft_move(mlx_key_data_t keydata, void *param);
 int					ft_make_color(int r, int g, int b, int a);
 void				ft_color_backgroubd(mlx_image_t *background,
 						int width, int hight);
-mlx_image_t			*ft_create_background(mlx_t *window);
+mlx_image_t			*ft_create_background(mlx_t *window,
+						int window_width, int window_height);
 mlx_image_t			*ft_create_image(mlx_t *window, char c,
-						int width, int hight);
+						int image_size);
 t_elements			*ft_create_elements(mlx_t *window,
 						t_elements_count elements_count);
 void				ft_map_to_instance_background(mlx_t *window,
@@ -117,6 +126,8 @@ int					ft_character_counter(char character, char *map);
 int					ft_width_counter(char *map);
 int					ft_hight_counter(char *map);
 t_elements_count	ft_elements_count(char *map);
+void				ft_calculate_character_size(
+						t_elements_count *elements_count);
 t_window_elements	ft_create_window_elements(char *map);
 
 #endif // SO_LONG_H

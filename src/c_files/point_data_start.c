@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 11:57:39 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 12:10:38 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:05:23 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_point_data	ft_point_data_start(char *map, t_elements_count elements_count)
 	point_data.y_position = 0;
 	point_data.character = '\0';
 	point_data.character_width
-		= START_WINDOW_WIDTH / elements_count.width_count;
+		= elements_count.image_size;
 	point_data.character_height
-		= START_WINDOW_HEIGHT / elements_count.hight_count;
+		= elements_count.image_size;
 	return (point_data);
 }

@@ -6,7 +6,7 @@
 #    By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/03/01 12:55:28 by nnourine         ###   ########.fr        #
+#    Updated: 2024/03/01 15:42:42 by nnourine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ LIBPRINT = lib/ft_printf
 BREW_LIB = /Users/$(USER)/.brew/Cellar/glfw/3.4/lib
 
 # Files
-SRCS = $(SRCDIR)/check_exit.c  \
+SRCS = $(SRCDIR)/calculate_character_size.c  \
+		$(SRCDIR)/check_exit.c  \
 		$(SRCDIR)/check_near_wall.c  \
 		$(SRCDIR)/check_reach_to_collectible.c  \
 		$(SRCDIR)/check_with_wall_instance.c  \

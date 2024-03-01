@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:55 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 11:42:00 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:35:37 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_elements_count	ft_elements_count(char *map)
 	elements_count.player_count = ft_character_counter('P', map);
 	elements_count.width_count = ft_width_counter(map);
 	elements_count.hight_count = ft_hight_counter(map);
+	ft_calculate_character_size(&elements_count);
 	return (elements_count);
 }
 
@@ -88,9 +89,13 @@ t_window_elements	ft_create_window_elements(char *map)
 	t_elements				*elements;
 	t_window_elements		window_elements;
 	int						movement_count;
+	int						image_size;
 
 	window_elements.elements_count = ft_elements_count(map);
-	window = mlx_init(START_WINDOW_WIDTH, START_WINDOW_HEIGHT, "title", true);
+	image_size = window_elements.elements_count.image_size;
+	window = mlx_init(window_elements.elements_count.window_width,
+			window_elements.elements_count.window_height,
+			"so_long", true);
 	if (!window)
 		ft_exit_failure(0, 0, "window initialization problem");
 	elements = ft_create_elements(window, window_elements.elements_count);

@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:31 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 11:44:47 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:07:23 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void	ft_move_up(void *param)
 	{
 		*movement_count = *movement_count + 1;
 		ft_printf("Movement Count:%d\n", *movement_count);
-		player->instances[0].y -= (
-				START_WINDOW_HEIGHT / elements_count.hight_count);
+		player->instances[0].y -= elements_count.image_size;
 		ft_check_reach_to_collectible(((t_window_elements *) param));
 		ft_check_exit(((t_window_elements *) param));
 	}
@@ -53,8 +52,7 @@ void	ft_move_down(void *param)
 	{
 		*movement_count = *movement_count + 1;
 		ft_printf("Movement Count:%d\n", *movement_count);
-		player->instances[0].y += (
-				START_WINDOW_HEIGHT / elements_count.hight_count);
+		player->instances[0].y += elements_count.image_size;
 		ft_check_reach_to_collectible(((t_window_elements *) param));
 		ft_check_exit(((t_window_elements *) param));
 	}
@@ -77,8 +75,7 @@ void	ft_move_right(void *param)
 	{
 		*movement_count = *movement_count + 1;
 		ft_printf("Movement Count:%d\n", *movement_count);
-		player->instances[0].x += (
-				START_WINDOW_WIDTH / elements_count.width_count);
+		player->instances[0].x += elements_count.image_size;
 		ft_check_reach_to_collectible(((t_window_elements *) param));
 		ft_check_exit(((t_window_elements *) param));
 	}
@@ -101,8 +98,7 @@ void	ft_move_left(void *param)
 	{
 		*movement_count = *movement_count + 1;
 		ft_printf("Movement Count:%d\n", *movement_count);
-		player->instances[0].x -= (
-				START_WINDOW_WIDTH / elements_count.width_count);
+		player->instances[0].x -= elements_count.image_size;
 		ft_check_reach_to_collectible(((t_window_elements *) param));
 		ft_check_exit(((t_window_elements *) param));
 	}
