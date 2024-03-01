@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:08:55 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 13:20:16 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:38:10 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_check_with_wall_instance_up(mlx_image_t *player,
 	py = player->instances[0].y;
 	wx = wall->instances[index].x;
 	wy = wall->instances[index].y;
-	if ((wx == px) && (wy == (py - 90)))
+	if ((wx == px) && (wy == (py - (int)((*player).height))))
 		return (0);
 	return (index + 1);
 }
@@ -41,7 +41,7 @@ int	ft_check_with_wall_instance_down(mlx_image_t *player,
 	py = player->instances[0].y;
 	wx = wall->instances[index].x;
 	wy = wall->instances[index].y;
-	if ((wx == px) && (wy == (py + 90)))
+	if ((wx == px) && (wy == (py + (int)((*player).height))))
 		return (0);
 	return (index + 1);
 }
@@ -58,7 +58,7 @@ int	ft_check_with_wall_instance_left(mlx_image_t *player,
 	py = player->instances[0].y;
 	wx = wall->instances[index].x;
 	wy = wall->instances[index].y;
-	if ((wx == (px - 90)) && (wy == py))
+	if ((wx == (px - (int)((*player).width))) && (wy == py))
 		return (0);
 	return (index + 1);
 }
@@ -75,7 +75,7 @@ int	ft_check_with_wall_instance_right(mlx_image_t *player,
 	py = player->instances[0].y;
 	wx = wall->instances[index].x;
 	wy = wall->instances[index].y;
-	if ((wx == (px + 90)) && (wy == py))
+	if ((wx == (px + (int)((*player).width))) && (wy == py))
 		return (0);
 	return (index + 1);
 }

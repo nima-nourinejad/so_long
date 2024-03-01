@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:55 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 17:12:44 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:42:00 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,11 @@ t_window_elements	ft_create_window_elements(char *map)
 	int						movement_count;
 
 	window_elements.elements_count = ft_elements_count(map);
-	window = mlx_init((window_elements.elements_count.width_count * 90),
-			(window_elements.elements_count.hight_count * 90), "title", true);
+	window = mlx_init(START_WINDOW_WIDTH, START_WINDOW_HEIGHT, "title", true);
+	if (!window)
+		ft_exit_failure(0, 0, "window initialization problem");
 	elements = ft_create_elements(window, window_elements.elements_count);
-	ft_map_to_instance(window, elements, map);
+	ft_map_to_instance(window, elements, window_elements.elements_count, map);
 	window_elements.window = window;
 	window_elements.elements = elements;
 	movement_count = 0;

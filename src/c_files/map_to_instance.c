@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:40 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 16:04:26 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:15:56 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,67 +42,64 @@ void	ft_create_instance(mlx_t *window,
 }
 
 void	ft_map_to_instance_except_player(mlx_t *window,
-	t_elements *elements, char *map)
+	t_elements *elements, t_elements_count elements_count, char *map)
 {
-	int				fd_map;
 	t_point_data	point_data;
 
-	fd_map = open(map, O_RDONLY);
-	if (fd_map == -1)
+	point_data = ft_point_data_start(map, elements_count);
+	if (point_data.fd_map == -1)
 		ft_exit_failure(window, elements, "Map opening problem");
-	point_data.x_position = 0;
-	point_data.y_position = 0;
-	point_data.character = '\0';
-	while (read(fd_map, &(point_data.character), 1))
+	while (read(point_data.fd_map, &(point_data.character), 1))
 	{
 		if (point_data.character == '\n')
 		{
 			point_data.x_position = 0;
-			point_data.y_position = point_data.y_position + 90;
+			point_data.y_position
+				= point_data.y_position + point_data.character_height;
 		}
 		else
 		{
 			if (point_data.character == 'P')
 				point_data.character = '0';
 			ft_create_instance(window, elements, point_data);
-			point_data.x_position = point_data.x_position + 90;
+			point_data.x_position
+				= point_data.x_position + point_data.character_width;
 		}
 	}
-	close(fd_map);
+	close(point_data.fd_map);
 }
 
 void	ft_map_to_instance_player(mlx_t *window,
-	t_elements *elements, char *map)
+	t_elements *elements, t_elements_count elements_count, char *map)
 {
-	int				fd_map;
 	t_point_data	point_data;
 
-	fd_map = open(map, O_RDONLY);
-	if (fd_map == -1)
+	point_data = ft_point_data_start(map, elements_count);
+	if (point_data.fd_map == -1)
 		ft_exit_failure(window, elements, "Map opening problem");
-	point_data.x_position = 0;
-	point_data.y_position = 0;
-	point_data.character = '\0';
-	while (read(fd_map, &(point_data.character), 1))
+	while (read(point_data.fd_map, &(point_data.character), 1))
 	{
 		if (point_data.character == '\n')
 		{
 			point_data.x_position = 0;
-			point_data.y_position = point_data.y_position + 90;
+			point_data.y_position
+				= point_data.y_position + point_data.character_height;
 		}
 		else
 		{
 			if (point_data.character == 'P')
 				ft_create_instance(window, elements, point_data);
-			point_data.x_position = point_data.x_position + 90;
+			point_data.x_position
+				= point_data.x_position + point_data.character_width;
 		}
 	}
-	close(fd_map);
+	close(point_data.fd_map);
 }
 
-void	ft_map_to_instance(mlx_t *window, t_elements *elements, char *map)
+void	ft_map_to_instance(mlx_t *window, t_elements *elements,
+	t_elements_count elements_count, char *map)
 {
 	ft_map_to_instance_background(window, elements);
-	ft_map_to_instance_except_player(window, elements, map);
-	ft_map_to_instance_player(window, elements, map);
+	ft_map_to_instance_except_player(window, elements, elements_count, map);
+	ft_map_to_instance_player(window, elements, elements_count, map);
 }

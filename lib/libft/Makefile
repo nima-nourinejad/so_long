@@ -6,7 +6,7 @@
 #    By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/02/10 14:45:00 by nnourine         ###   ########.fr        #
+#    Updated: 2024/03/01 12:30:48 by nnourine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,17 +64,17 @@ NAME = libft.a
 all: $(NAME)
 
 %.o: %.c
-	cc $(CFLAGS) -c $< -o $@
+	@cc $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
+	@ar -rcs $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ) $(OBJBNS)
+	@rm -f $(OBJ) $(OBJBNS)
 	@rm -rf .bonus
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:06:42 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 16:59:53 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:46:38 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,14 @@ void	ft_color_backgroubd(mlx_image_t *background, int width, int hight)
 	}
 }
 
-
-
-mlx_image_t	*ft_create_background(mlx_t *window,
-	t_elements_count elements_count)
+mlx_image_t	*ft_create_background(mlx_t *window)
 {
-	int				width;
-	int				hight;
 	mlx_image_t		*background;
 
-	width = elements_count.width_count * 90;
-	hight = elements_count.hight_count * 90;
-	// width = 1170;
-	// hight = 450;
-	// ft_printf("width: %d and hight: %d\n", width, hight);
-	background = mlx_new_image (window, width, hight);
+	background = mlx_new_image (window, START_WINDOW_WIDTH,
+			START_WINDOW_HEIGHT);
 	if (!background)
 		ft_exit_failure(window, 0, "background creation problem");
-	ft_color_backgroubd(background, width, hight);
+	ft_color_backgroubd(background, START_WINDOW_WIDTH, START_WINDOW_HEIGHT);
 	return (background);
 }

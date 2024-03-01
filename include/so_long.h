@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 17:09:54 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:11:32 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include "../lib/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
+
+# define START_WINDOW_WIDTH 1170
+# define START_WINDOW_HEIGHT 450
 
 typedef struct s_elements
 {
@@ -50,6 +53,9 @@ typedef struct s_window_elements
 
 typedef struct s_point_data
 {
+	int		fd_map;
+	int		character_width;
+	int		character_height;
 	int		x_position;
 	int		y_position;
 	char	character;
@@ -87,21 +93,26 @@ void				ft_move(mlx_key_data_t keydata, void *param);
 int					ft_make_color(int r, int g, int b, int a);
 void				ft_color_backgroubd(mlx_image_t *background,
 						int width, int hight);
-mlx_image_t			*ft_create_background(mlx_t *window,
-						t_elements_count elements_count);
-mlx_image_t			*ft_create_image(mlx_t *window, char c);
+mlx_image_t			*ft_create_background(mlx_t *window);
+mlx_image_t			*ft_create_image(mlx_t *window, char c,
+						int width, int hight);
 t_elements			*ft_create_elements(mlx_t *window,
 						t_elements_count elements_count);
 void				ft_map_to_instance_background(mlx_t *window,
 						t_elements *elements);
 void				ft_create_instance(mlx_t *window,
 						t_elements *elements, t_point_data point_data);
+t_point_data		ft_point_data_start(char *map,
+						t_elements_count elements_count);
 void				ft_map_to_instance_except_player(mlx_t *window,
-						t_elements *elements, char *map);
+						t_elements *elements,
+						t_elements_count elements_count, char *map);
 void				ft_map_to_instance_player(mlx_t *window,
-						t_elements *elements, char *map);
+						t_elements *elements,
+						t_elements_count elements_count, char *map);
 void				ft_map_to_instance(mlx_t *window,
-						t_elements *elements, char *map);
+						t_elements *elements,
+						t_elements_count elements_count, char *map);
 int					ft_character_counter(char character, char *map);
 int					ft_width_counter(char *map);
 int					ft_hight_counter(char *map);
