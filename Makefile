@@ -6,7 +6,7 @@
 #    By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/03/01 16:40:59 by nnourine         ###   ########.fr        #
+#    Updated: 2024/03/01 17:37:18 by nnourine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS = $(SRCDIR)/calculate_character_size.c  \
 		$(SRCDIR)/map_to_instance.c  \
 		$(SRCDIR)/press_key.c  \
 		$(SRCDIR)/point_data_start.c  \
+		$(SRCDIR)/resize.c  \
 		$(SRCDIR)/so_long.c
 OBJS = $(SRCS:.c=.o)
 

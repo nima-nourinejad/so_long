@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:55 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 17:05:05 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:30:12 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_elements_count	ft_elements_count(char *map)
 	elements_count.player_count = ft_character_counter('P', map);
 	elements_count.width_count = ft_width_counter(map);
 	elements_count.hight_count = ft_hight_counter(map);
+	elements_count.map = map;
 	ft_calculate_character_size(&elements_count);
 	return (elements_count);
 }

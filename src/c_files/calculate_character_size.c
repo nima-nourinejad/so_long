@@ -6,11 +6,43 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 13:22:07 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 17:03:50 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:28:27 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
+
+void	ft_get_monitor_size(int *monitor_width, int *monitor_height)
+{
+	mlx_t		*temp_window;
+
+	temp_window = mlx_init(100, 100, "temp_window", true);
+	if (!temp_window)
+		ft_exit_failure(0, 0, "Problem in getting the monitor size");
+	mlx_get_monitor_size(0, monitor_width, monitor_height);
+	mlx_terminate(temp_window);
+}
+
+float	ft_get_ratio(int size, int count)
+{
+	float	ratio;
+
+	ratio = size / START_IMAGE_SIZE;
+	ratio = ratio / count;
+	return (ratio);
+}
+
+float	ft_best_ratio(float ratio_width, float ratio_height)
+{
+	float	final_ratio;
+
+	final_ratio = ratio_height;
+	if (ratio_width < final_ratio)
+		final_ratio = ratio_width;
+	if (final_ratio > 1)
+		final_ratio = 1;
+	return (final_ratio);
+}
 
 void	ft_calculate_character_size(t_elements_count *elements_count)
 {
@@ -18,20 +50,12 @@ void	ft_calculate_character_size(t_elements_count *elements_count)
 	int			monitor_height;
 	float		ratio_width;
 	float		final_ratio;
-	mlx_t		*temp_window;
 
-	temp_window = mlx_init(100, 100, "temp_window", true);
-	mlx_get_monitor_size(0, &monitor_width, &monitor_height);
-	mlx_terminate(temp_window);
 	(*elements_count).start_image_size = START_IMAGE_SIZE;
-	ratio_width = monitor_width / START_IMAGE_SIZE;
-	ratio_width = ratio_width / (*elements_count).width_count;
-	final_ratio = monitor_height
-		/ (START_IMAGE_SIZE * (*elements_count).hight_count);
-	if (ratio_width < final_ratio)
-		final_ratio = ratio_width;
-	if (final_ratio > 1)
-		final_ratio = 1;
+	ft_get_monitor_size(&monitor_width, &monitor_height);
+	ratio_width = ft_get_ratio(monitor_width, (*elements_count).width_count);
+	final_ratio = ft_get_ratio(monitor_height, (*elements_count).hight_count);
+	final_ratio = ft_best_ratio(ratio_width, final_ratio);
 	(*elements_count).image_width = floor(final_ratio * START_IMAGE_SIZE);
 	(*elements_count).image_height = floor(final_ratio * START_IMAGE_SIZE);
 	(*elements_count).window_width = ceil((*elements_count).image_width

@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 17:08:30 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:29:21 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@ typedef struct s_elements
 	mlx_image_t	*collectible;
 	mlx_image_t	*exit;
 	mlx_image_t	*player;
-	int			*start_image_size;
-	int			*image_width;
-	int			*image_height;
-	int			*window_width;
-	int			*window_height;
 }				t_elements;
 
 typedef struct s_elements_count
@@ -51,6 +46,7 @@ typedef struct s_elements_count
 	int		image_height;
 	int		window_width;
 	int		window_height;
+	char	*map;
 }			t_elements_count;
 
 typedef struct s_window_elements
@@ -71,8 +67,8 @@ typedef struct s_point_data
 	char	character;
 }				t_point_data;
 
-int					ft_exit_failure(mlx_t *mlx,
-						t_elements *elements, char *error_message);
+int					ft_exit_failure(mlx_t *mlx,	t_elements *elements,
+						char *error_message);
 int					ft_exit_success(mlx_t *mlx, t_elements *elements);
 void				ft_check_with_collectible_instance(mlx_image_t *player,
 						mlx_image_t *collectible, int index);
@@ -110,6 +106,9 @@ mlx_image_t			*ft_create_image(mlx_t *window, char c,
 						int image_width, int image_height);
 t_elements			*ft_create_elements(mlx_t *window,
 						t_elements_count elements_count);
+void				ft_create_elements_resize(mlx_t *window,
+						t_elements_count elements_count,
+						t_elements	*elements);
 void				ft_map_to_instance_background(mlx_t *window,
 						t_elements *elements);
 void				ft_create_instance(mlx_t *window,
@@ -129,8 +128,13 @@ int					ft_character_counter(char character, char *map);
 int					ft_width_counter(char *map);
 int					ft_hight_counter(char *map);
 t_elements_count	ft_elements_count(char *map);
+void				ft_get_monitor_size(int *monitor_width,
+						int *monitor_height);
+float				ft_get_ratio(int size, int count);
+float				ft_best_ratio(float ratio_width, float ratio_height);
 void				ft_calculate_character_size(
 						t_elements_count *elements_count);
 t_window_elements	ft_create_window_elements(char *map);
+void				ft_resize(int new_width, int new_height, void *param);
 
 #endif // SO_LONG_H

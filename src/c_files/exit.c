@@ -6,13 +6,14 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:48 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 13:06:01 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:58:42 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	ft_exit_failure(mlx_t *mlx, t_elements *elements, char *error_message)
+int	ft_exit_failure(mlx_t *mlx, t_elements *elements,
+		char *error_message)
 {
 	if (mlx)
 		mlx_terminate(mlx);

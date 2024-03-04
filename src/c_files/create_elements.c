@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:04:03 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 17:08:08 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:07:57 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,35 @@ t_elements	*ft_create_elements(mlx_t *window,
 	elements->empty_space = ft_create_background(window,
 			window_width, window_height);
 	elements->wall = ft_create_image(window, '1', image_width, image_height);
-	elements->collectible = ft_create_image(window, 'C', image_width, image_height);
+	elements->collectible = ft_create_image(
+			window, 'C', image_width, image_height);
 	elements->exit = ft_create_image(window, 'E', image_width, image_height);
 	elements->player = ft_create_image(window, 'P', image_width, image_height);
 	return (elements);
+}
+
+void	ft_create_elements_resize(mlx_t *window,
+	t_elements_count elements_count, t_elements	*elements)
+{
+	int			window_width;
+	int			window_height;
+	int			image_width;
+	int			image_height;
+
+	mlx_delete_image(window, elements->empty_space);
+	mlx_delete_image(window, elements->collectible);
+	mlx_delete_image(window, elements->wall);
+	mlx_delete_image(window, elements->exit);
+	mlx_delete_image(window, elements->player);
+	image_width = elements_count.image_width;
+	image_height = elements_count.image_height;
+	window_width = elements_count.window_width;
+	window_height = elements_count.window_height;
+	elements->empty_space = ft_create_background(window,
+			window_width, window_height);
+	elements->wall = ft_create_image(window, '1', image_width, image_height);
+	elements->collectible = ft_create_image(
+			window, 'C', image_width, image_height);
+	elements->exit = ft_create_image(window, 'E', image_width, image_height);
+	elements->player = ft_create_image(window, 'P', image_width, image_height);
 }
