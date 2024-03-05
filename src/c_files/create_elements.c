@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:04:03 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/04 13:07:57 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:31:26 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_elements	*ft_create_elements(mlx_t *window,
 	elements = malloc(sizeof(t_elements));
 	if (!elements)
 		ft_exit_failure(window, 0, "Elements memory allocation problem");
+	elements->player_collectible = ft_start_position(window, elements_count);
 	image_width = elements_count.image_width;
 	image_height = elements_count.image_height;
 	window_width = elements_count.window_width;

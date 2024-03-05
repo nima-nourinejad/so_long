@@ -6,28 +6,11 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:55 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/04 12:30:12 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:57:38 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
-
-int	ft_character_counter(char character, char *map)
-{
-	int		fd_map;
-	int		count;
-	char	buffer_read;
-
-	fd_map = open(map, O_RDONLY);
-	if (fd_map == -1)
-		ft_exit_failure(0, 0, "Map opening problem");
-	count = 0;
-	while (read(fd_map, &buffer_read, 1))
-		if (buffer_read == character)
-			count++;
-	close(fd_map);
-	return (count);
-}
 
 int	ft_width_counter(char *map)
 {
@@ -73,10 +56,6 @@ t_elements_count	ft_elements_count(char *map)
 {
 	t_elements_count	elements_count;
 
-	elements_count.wall_count = ft_character_counter('1', map);
-	elements_count.collectible_count = ft_character_counter('C', map);
-	elements_count.exit_count = ft_character_counter('E', map);
-	elements_count.player_count = ft_character_counter('P', map);
 	elements_count.width_count = ft_width_counter(map);
 	elements_count.hight_count = ft_hight_counter(map);
 	elements_count.map = map;

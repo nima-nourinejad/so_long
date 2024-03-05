@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:04:30 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 13:19:48 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:13:32 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_check_all_collectible_done(t_window_elements *window_elements)
 	int			index;
 
 	collectible = (window_elements->elements)->collectible;
-	count = ((*window_elements).elements_count).collectible_count;
+	count = collectible->count;
 	index = 0;
 	while (index < count)
 	{

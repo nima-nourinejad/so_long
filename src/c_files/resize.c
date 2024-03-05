@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:14:56 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/04 13:07:35 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:16:26 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	ft_resize(int new_width, int new_height, void *param)
 	(elements_count).image_height = floor(new_height
 			/ (elements_count).hight_count);
 	ft_create_elements_resize(window, elements_count, elements);
-	ft_map_to_instance(window, elements, elements_count, elements_count.map);
+	ft_map_to_instance_resize(window, elements,
+		elements_count, elements_count.map);
 }

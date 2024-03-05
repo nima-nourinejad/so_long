@@ -6,19 +6,37 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:48 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/04 12:58:42 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:08:28 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+void	ft_free_collectible_list(void	*first)
+{
+	t_collectible_position	*node;
+	t_collectible_position	*temp;
+
+	node = first;
+	while (node)
+	{
+		temp = node->next;
+		free(node);
+		node = temp;
+	}
+}
+
 int	ft_exit_failure(mlx_t *mlx, t_elements *elements,
 		char *error_message)
 {
+	if (elements)
+	{
+		ft_free_collectible_list((elements->player_collectible)->collectible);
+		free(elements->player_collectible);
+		free(elements);
+	}
 	if (mlx)
 		mlx_terminate(mlx);
-	if (elements)
-		free (elements);
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(error_message, 2);
 	ft_putstr_fd("\n", 2);
@@ -27,9 +45,13 @@ int	ft_exit_failure(mlx_t *mlx, t_elements *elements,
 
 int	ft_exit_success(mlx_t *mlx, t_elements *elements)
 {
+	if (elements)
+	{
+		ft_free_collectible_list((elements->player_collectible)->collectible);
+		free(elements->player_collectible);
+		free (elements);
+	}
 	if (mlx)
 		mlx_terminate(mlx);
-	if (elements)
-		free (elements);
 	exit(EXIT_SUCCESS);
 }

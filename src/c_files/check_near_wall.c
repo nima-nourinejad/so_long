@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:04:23 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/29 13:09:10 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:55:37 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_check_near_wall(t_window_elements *window_elements, char move)
 
 	player = (window_elements->elements)->player;
 	wall = (window_elements->elements)->wall;
-	count = ((*window_elements).elements_count).wall_count;
+	count = wall->count;
 	index = 0;
 	while (index < count)
 	{

@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:06:42 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/04 12:08:37 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:19:19 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,14 @@ mlx_image_t	*ft_create_background(mlx_t *window,
 		ft_exit_failure(window, 0, "background creation problem");
 	ft_color_backgroubd(background, window_width, window_height);
 	return (background);
+}
+
+void	ft_map_to_instance_background_resize(mlx_t *window,
+	t_elements *elements)
+{
+	mlx_image_t	*background;
+
+	background = elements->empty_space;
+	if (mlx_image_to_window(window, background, 0, 0) == -1)
+		ft_exit_failure(window, elements, "backgroubd instance making problem");
 }
