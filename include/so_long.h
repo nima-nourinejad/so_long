@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/05 15:19:48 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/06 17:31:30 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,31 @@ typedef struct s_point_data
 	int		y_position;
 	char	character;
 }			t_point_data;
+
+typedef struct s_read_data
+{
+	int		read;
+	int		counter;
+	char	buffer;
+}			t_read_data;
+
+typedef struct s_cell_data
+{
+	char				ch;
+	int					x;
+	int					y;
+}						t_cell_data;
+
+typedef struct s_map_data
+{
+	char				ch;
+	int					x;
+	int					y;
+	int					t;
+	struct s_map_data	*next;
+}						t_map_data;
+
+
 
 int						ft_exit_failure(mlx_t *mlx,	t_elements *elements,
 							char *error_message);
@@ -161,8 +186,15 @@ void					ft_calculate_character_size(
 							t_elements_count *elements_count);
 t_window_elements		ft_create_window_elements(char *map);
 void					ft_resize(int new_width, int new_height, void *param);
-void					ft_free_collectible_list(void	*first);
+void					ft_free_collectible_list(void *first);
 void					ft_map_to_instance_background_resize(mlx_t *window,
 							t_elements *elements);
+void					ft_validate_map(char *map);
+void					ft_free_map_data(void *first);
+t_map_data				*ft_create_map_data(char *map, int fd_map,
+							t_map_data *first_cell);
+t_map_data				*ft_find_cell(t_map_data *start, int x, int y, char ch);
+void					ft_flood(t_map_data *start);
+void					ft_print_map(t_map_data *start, int type);
 
 #endif // SO_LONG_H

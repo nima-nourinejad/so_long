@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 10:23:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/05 15:10:58 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:12:12 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		ft_exit_failure(0, 0, "the wrong number of arguments");
+	ft_validate_map(argv[1]);
 	window_elements = ft_create_window_elements(argv[1]);
 	mlx_set_window_limit(window_elements.window, 100, 100, -1, -1);
 	mlx_resize_hook(window_elements.window, &ft_resize, &window_elements);

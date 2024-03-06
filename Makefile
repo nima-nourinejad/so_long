@@ -6,7 +6,7 @@
 #    By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/03/05 14:17:14 by nnourine         ###   ########.fr        #
+#    Updated: 2024/03/06 12:40:01 by nnourine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ SRCS = $(SRCDIR)/calculate_character_size.c  \
 		$(SRCDIR)/check_near_wall.c  \
 		$(SRCDIR)/check_reach_to_collectible.c  \
 		$(SRCDIR)/check_with_wall_instance.c  \
-		$(SRCDIR)/create_backgroub.c  \
+		$(SRCDIR)/create_background.c  \
 		$(SRCDIR)/create_elements.c  \
 		$(SRCDIR)/create_window_elements.c  \
 		$(SRCDIR)/escape_key.c  \
@@ -51,6 +51,9 @@ SRCS = $(SRCDIR)/calculate_character_size.c  \
 		$(SRCDIR)/resize.c  \
 		$(SRCDIR)/player.c \
 		$(SRCDIR)/start_position.c \
+		$(SRCDIR)/touch_cell.c \
+		$(SRCDIR)/map_data.c \
+		$(SRCDIR)/validate_map.c \
 		$(SRCDIR)/so_long.c
 OBJS = $(SRCS:.c=.o)
 
