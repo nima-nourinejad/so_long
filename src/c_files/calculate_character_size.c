@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 13:22:07 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/05 14:52:51 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/07 15:41:56 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ void	ft_calculate_character_size(t_elements_count *elements_count)
 	(*elements_count).start_image_size = START_IMAGE_SIZE;
 	ft_get_monitor_size(&monitor_width, &monitor_height);
 	ratio_width = ft_get_ratio(monitor_width, (*elements_count).width_count);
+	if (ratio_width < 0.01)
+		ft_exit_failure(0, 0, "Too big map width");
 	final_ratio = ft_get_ratio(monitor_height, (*elements_count).hight_count);
+	if (final_ratio < 0.01)
+		ft_exit_failure(0, 0, "Too big map height");
 	final_ratio = ft_best_ratio(ratio_width, final_ratio);
 	(*elements_count).image_width = floor(final_ratio * START_IMAGE_SIZE);
 	(*elements_count).image_height = floor(final_ratio * START_IMAGE_SIZE);
