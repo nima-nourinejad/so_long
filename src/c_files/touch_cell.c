@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:30:37 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/06 17:29:31 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:27:10 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,45 +92,4 @@ void	ft_flood(t_map_data *start)
 		}
 		sum2 = ft_sum_flood(start);
 	}
-}
-
-
-void ft_print_map(t_map_data *start, int type)
-{
-	t_map_data	*node;
-	int			level;
-
-	level = 1;
-	node = start;
-	ft_printf("\n");
-	if (type == 0)
-	{
-		while (node)
-		{
-			if ((*node).y == level)
-			{
-				ft_printf("\n");
-				level++;
-			}
-			ft_printf("%c", (*node).ch);
-			node = node->next;
-		}
-	}
-	else
-	{
-		while (node)
-		{
-			if ((*node).y == level)
-			{
-				ft_printf("\n");
-				level++;
-			}
-			if ((*node).ch == '1')
-				ft_printf("w");
-			else
-				ft_printf("%d", (*node).t);
-			node = node->next;
-		}
-	}
-	ft_printf("\n");
 }

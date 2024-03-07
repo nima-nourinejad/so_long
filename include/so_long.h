@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/06 17:31:30 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:47:56 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,6 @@ typedef struct s_map_data
 	struct s_map_data	*next;
 }						t_map_data;
 
-
-
 int						ft_exit_failure(mlx_t *mlx,	t_elements *elements,
 							char *error_message);
 int						ft_exit_success(mlx_t *mlx, t_elements *elements);
@@ -195,6 +193,19 @@ t_map_data				*ft_create_map_data(char *map, int fd_map,
 							t_map_data *first_cell);
 t_map_data				*ft_find_cell(t_map_data *start, int x, int y, char ch);
 void					ft_flood(t_map_data *start);
-void					ft_print_map(t_map_data *start, int type);
+void					ft_check_flood_fill(t_map_data	*start);
+void					ft_check_valid_path(char *map);
+int						ft_check_each_char(char c);
+void					ft_check_all_char(char *map);
+void					ft_check_one_exit(char *map);
+void					ft_check_one_starting_position(char *map);
+void					ft_check_one_collectible(char *map);
+t_read_data				ft_read_line(int fd_map);
+void					ft_check_rectangular(char *map);
+void					ft_check_char_wall(char buffer, int fd_map);
+void					ft_check_first_line_wall(char *map);
+void					ft_check_last_line_wall(char *map);
+void					ft_check_left_side_wall(char *map);
+void					ft_check_right_side_wall(char *map);
 
 #endif // SO_LONG_H
