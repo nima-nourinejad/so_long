@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 14:56:54 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/05 15:18:33 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:43:46 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_create_instance_resize(mlx_t *window,
 		ft_exit_failure(window, elements, "Instance making problem");
 }
 
-void	ft_map_to_instance_except_player_resize(mlx_t *window,
+void	ft_map_to_instance_except_wall_exit_resize(mlx_t *window,
 	t_elements *elements, t_elements_count elements_count, char *map)
 {
 	t_point_data	point_data;
@@ -48,7 +48,7 @@ void	ft_map_to_instance_except_player_resize(mlx_t *window,
 			point_data.y_position
 				= point_data.y_position + point_data.character_height;
 		}
-		else if (point_data.character != 'P' && point_data.character != 'C')
+		else if (point_data.character == '1' || point_data.character == 'E')
 		{
 			ft_create_instance(window, elements, point_data);
 			point_data.x_position
@@ -102,7 +102,7 @@ void	ft_map_to_instance_resize(mlx_t *window,
 	t_elements_count elements_count, char *map)
 {
 	ft_map_to_instance_background_resize(window, elements);
-	ft_map_to_instance_except_player_resize(window, elements,
+	ft_map_to_instance_except_wall_exit_resize(window, elements,
 		elements_count, map);
 	ft_map_to_instance_collectible_resize(window, elements);
 	ft_map_to_instance_player_resize(window, elements);

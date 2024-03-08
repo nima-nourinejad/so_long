@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/07 13:54:06 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:48:43 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 
 # define START_IMAGE_SIZE 100
+# define MIN_IMAGE_SIZE 10
+# define MAX_MONITOR_USAGE 0.95
 
 typedef struct s_player_position
 {
@@ -62,6 +64,8 @@ typedef struct s_elements_count
 	int		image_height;
 	int		window_width;
 	int		window_height;
+	int		max_monitor_width;
+	int		max_monitor_height;
 	char	*map;
 }			t_elements_count;
 
@@ -206,5 +210,6 @@ void					ft_check_first_line_wall(char *map);
 void					ft_check_last_line_wall(char *map);
 void					ft_check_left_side_wall(char *map);
 void					ft_check_right_side_wall(char *map);
+void					ft_check_ber(char *map);
 
 #endif // SO_LONG_H

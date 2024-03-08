@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:55 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/05 14:57:38 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:37:51 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ t_window_elements	ft_create_window_elements(char *map)
 			"so_long", true);
 	if (!window)
 		ft_exit_failure(0, 0, "window initialization problem");
+	mlx_set_window_limit(window,
+		MIN_IMAGE_SIZE * window_elements.elements_count.width_count,
+		MIN_IMAGE_SIZE * window_elements.elements_count.hight_count, -1, -1);
 	elements = ft_create_elements(window, window_elements.elements_count);
 	ft_map_to_instance(window, elements, window_elements.elements_count, map);
 	window_elements.window = window;

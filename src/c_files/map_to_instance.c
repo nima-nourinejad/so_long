@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:40 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/01 12:15:56 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:00:58 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,8 @@ void	ft_map_to_instance_except_player(mlx_t *window,
 		}
 		else
 		{
-			if (point_data.character == 'P')
-				point_data.character = '0';
-			ft_create_instance(window, elements, point_data);
+			if (point_data.character != 'P' && point_data.character != '0')
+				ft_create_instance(window, elements, point_data);
 			point_data.x_position
 				= point_data.x_position + point_data.character_width;
 		}

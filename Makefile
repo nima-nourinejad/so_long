@@ -6,7 +6,7 @@
 #    By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/03/07 12:46:33 by nnourine         ###   ########.fr        #
+#    Updated: 2024/03/08 11:49:20 by nnourine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRCS = $(SRCDIR)/calculate_character_size.c  \
 		$(SRCDIR)/player.c \
 		$(SRCDIR)/start_position.c \
 		$(SRCDIR)/touch_cell.c \
+		$(SRCDIR)/check_ber.c \
 		$(SRCDIR)/map_data.c \
 		$(SRCDIR)/check_side_wall.c \
 		$(SRCDIR)/check_rectangular.c \

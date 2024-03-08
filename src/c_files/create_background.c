@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:06:42 by nnourine          #+#    #+#             */
-/*   Updated: 2024/03/05 16:19:23 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:37:00 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_color_backgroubd(mlx_image_t *background, int width, int hight)
 		while (y_index < hight)
 		{
 			mlx_put_pixel(background, x_index, y_index,
-				ft_make_color(100, 100, 100, 200));
+				ft_make_color(0, 155, 0, 200));
 			y_index++;
 		}
 		x_index++;
