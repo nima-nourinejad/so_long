@@ -6,7 +6,7 @@
 #    By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/03/08 11:49:20 by nnourine         ###   ########.fr        #
+#    Updated: 2024/03/12 09:27:15 by nnourine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 GENERAL_LIB_FLAGS = -L$(LIBFT) -L$(LIBPRINT) -lft -lftprintf
+MATH = -lm
 LMX_FLAGS = -L$(LIBMLX)/build -L$(BREW_LIB) -lmlx42 -ldl -pthread -lm -lglfw
 
 # Directories
@@ -74,7 +75,7 @@ $(NAME): $(OBJS)
 	@$(MAKE) -C $(LIBMLX)/build -j4
 	@$(MAKE) -C $(LIBFT)
 	@$(MAKE) -C $(LIBPRINT)
-	@$(CC) $(CFLAGS) $(GENERAL_LIB_FLAGS) $(LMX_FLAGS) $(OBJS) -o $@
+	@$(CC) $(CFLAGS) $(MATH) $(GENERAL_LIB_FLAGS) $(LMX_FLAGS) $(OBJS) -o $@
 	@echo "$(COLOR)Compiling and linking: done$(RESET_COLOR)"
 
 # Compiling
