@@ -34,4 +34,3 @@ Contributions to So Long are welcome! Feel free to submit pull requests for bug 
 
 ## License
 This project is licensed under the [MIT License](LICENSE). Feel free to use and modify the code according to your needs.
-
