@@ -1,5 +1,6 @@
 # So Long - 2D Game Project
 
+
 Welcome to So Long, a captivating 2D game project developed using the MLX42 library!
 
 ## Overview
