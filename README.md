@@ -1,7 +1,7 @@
 # So Long - 2D Game Project
 
-
 Welcome to So Long, a captivating 2D game project developed using the MLX42 library!
+
 
 ## Overview
 So Long is a unique gaming experience where players control a character navigating through a dynamic environment filled with challenges and rewards. Developed as part of a programming project, So Long showcases the developer's skills in game development, graphics rendering, and dynamic window resizing.
