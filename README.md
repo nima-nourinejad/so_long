@@ -7,6 +7,7 @@ Welcome to So Long, a captivating 2D game project developed using the MLX42 libr
 ## Overview
 So Long is a unique gaming experience where players control a character navigating through a dynamic environment filled with challenges and rewards. Developed as part of a programming project, So Long showcases the developer's skills in game development, graphics rendering, and dynamic window resizing.
 
+
 ## Key Features
 - **Engaging Gameplay**: Navigate through the game using arrow keys, collecting items and exploring the map.
 - **Dynamic Window Resizing**: Seamlessly adapt to varying screen sizes with optimized graphics and gameplay.
